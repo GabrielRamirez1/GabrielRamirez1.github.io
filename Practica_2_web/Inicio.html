@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil de Usuario</title>
+<style>
+    /* Estilos Corporate Memphis */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+    .profile-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    img {
+        max-width: 200px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        display: block;
+        border: 5px solid #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    p {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    label {
+        display: block;
+        margin-top: 20px;
+        color: #666;
+        font-size: 16px;
+    }
+    input[type="string"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+</style>
+</head>
+<body>
+
+<div class="profile-container">
+    <h1>Perfil de Usuario</h1>
+    <img id="profile-pic" src="messi.jpg" alt="Foto de perfil">
+    <p id="username">Nombre de usuario</p>
+    <p id="email">correo@ejemplo.com</p>
+    <button onclick="changeProfilePic()">Cambiar Foto de Perfil</button>
+
+    <form>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+
+        <input type="text" name="token" value="code37" style="display: none;">
+    </form>
+</div>
+
+<script>
+    // Información de usuario simulada
+    const userData = {
+        username: "JohnDoe",
+        email: "john.doe@example.com",
+        profilePic: "messi.jpg" // ruta a la foto de perfil actual
+    };
+
+    // Función para cargar la información del usuario en la página
+    function loadUserInfo() {
+        document.getElementById('profile-pic').src = userData.profilePic;
+        document.getElementById('username').innerText = userData.username;
+        document.getElementById('email').innerText = userData.email;
+    }
+
+    // Función para cambiar la foto de perfil
+    function changeProfilePic() {
+        const newPicUrl = prompt("Ingrese la URL de la nueva foto de perfil:");
+        if (newPicUrl) {
+            userData.profilePic = newPicUrl;
+            document.getElementById('profile-pic').src = newPicUrl;
+        }
+    }
+
+    // Cargar información del usuario cuando la página se carga
+    window.onload = loadUserInfo;
+</script>
+</body>
+</html>
+
